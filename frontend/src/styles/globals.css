@@ -1,24 +1,112 @@
-/* Global app styles + theme variables.
-   This replaces the previous App.css role as a global theme holder. */
+/* Global app styles + retro design tokens (CSS variables).
+   Theme switching is controlled by setting `data-theme` on <html>.
+*/
 
 :root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
+  /* Typography */
+  --font-sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+
+  /* Spacing + shape */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+
+  /* Shadows */
+  --shadow-sm: 0 8px 18px rgba(0, 0, 0, 0.14);
+  --shadow-md: 0 14px 30px rgba(0, 0, 0, 0.18);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 120ms;
+  --dur-med: 200ms;
+
+  /* ===== Default theme: "light-retro" ===== */
+  --bg-primary: #fbfaf7;
+  --bg-secondary: #ffffff;
+  --surface-1: #ffffff;
+  --surface-2: #f4f1ea;
+
+  --text-primary: #14131a;
+  --text-muted: rgba(20, 19, 26, 0.7);
+
+  --border-color: rgba(20, 19, 26, 0.16);
+
+  /* Accents (retro neon-ish) */
+  --accent-1: #ff4fd8; /* magenta */
+  --accent-2: #00d4ff; /* cyan */
+  --accent-3: #8b5cf6; /* violet */
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 3px color-mix(in srgb, var(--accent-2) 40%, transparent),
+    0 0 0 6px color-mix(in srgb, var(--accent-1) 22%, transparent);
+
+  /* Components */
+  --button-bg: color-mix(in srgb, var(--accent-3) 84%, #000);
   --button-text: #ffffff;
+
+  --link-color: color-mix(in srgb, var(--accent-3) 82%, #000);
+  --code-bg: color-mix(in srgb, var(--surface-2) 70%, #000);
+  --code-text: color-mix(in srgb, var(--text-primary) 86%, #000);
+
+  /* Decorative */
+  --grid-line: color-mix(in srgb, var(--accent-2) 18%, transparent);
+  --scanline: rgba(0, 0, 0, 0.04);
 }
 
-[data-theme="dark"] {
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #282c34;
-  --text-primary: #ffffff;
-  --text-secondary: #61dafb;
-  --border-color: #404040;
-  --button-bg: #0056b3;
-  --button-text: #ffffff;
+/* ===== Theme: dark-retro ===== */
+html[data-theme="dark-retro"] {
+  --bg-primary: #0b0a10;
+  --bg-secondary: #12101a;
+  --surface-1: #12101a;
+  --surface-2: #191628;
+
+  --text-primary: #f7f5ff;
+  --text-muted: rgba(247, 245, 255, 0.7);
+
+  --border-color: rgba(247, 245, 255, 0.14);
+
+  --accent-1: #ff4fd8;
+  --accent-2: #00d4ff;
+  --accent-3: #a78bfa;
+
+  --button-bg: color-mix(in srgb, var(--accent-1) 70%, #000);
+  --button-text: #0b0a10;
+
+  --link-color: color-mix(in srgb, var(--accent-2) 80%, #fff);
+  --code-bg: color-mix(in srgb, var(--surface-2) 80%, #000);
+  --code-text: color-mix(in srgb, var(--text-primary) 90%, #fff);
+
+  --scanline: rgba(255, 255, 255, 0.03);
+}
+
+/* ===== Theme: amber-crt ===== */
+html[data-theme="amber-crt"] {
+  --bg-primary: #070503;
+  --bg-secondary: #0c0805;
+  --surface-1: #0c0805;
+  --surface-2: #14100c;
+
+  --text-primary: #ffd7a3;
+  --text-muted: rgba(255, 215, 163, 0.72);
+
+  --border-color: rgba(255, 215, 163, 0.18);
+
+  --accent-1: #ffb000; /* amber */
+  --accent-2: #ff7a00; /* orange */
+  --accent-3: #ffe08a; /* pale amber */
+
+  --button-bg: color-mix(in srgb, var(--accent-1) 74%, #000);
+  --button-text: #120a04;
+
+  --link-color: color-mix(in srgb, var(--accent-3) 72%, #000);
+  --code-bg: color-mix(in srgb, var(--surface-2) 86%, #000);
+  --code-text: color-mix(in srgb, var(--text-primary) 92%, #000);
+
+  --grid-line: rgba(255, 176, 0, 0.14);
+  --scanline: rgba(255, 176, 0, 0.02);
 }
 
 * {
@@ -32,12 +120,107 @@ body {
 
 body {
   margin: 0;
-  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: var(--font-sans);
   background: var(--bg-primary);
   color: var(--text-primary);
 }
 
+/* Subtle retro grid + scanline overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(transparent 0, transparent 2px, var(--scanline) 3px);
+  background-size: 56px 56px, 56px 56px, 100% 6px;
+  background-position: 0 0, 0 0, 0 0;
+  opacity: 0.45;
+}
+
 a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code,
+pre,
+kbd {
+  font-family: var(--font-mono);
+}
+
+code {
+  padding: 0.15em 0.35em;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--code-bg);
+  color: var(--code-text);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent-1) 35%, transparent);
+}
+
+/* Accessible focus handling */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 10px;
+}
+
+/* Base controls styling so app feels cohesive without a UI library */
+button,
+input,
+select,
+textarea {
+  font: inherit;
   color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Utility class for a retro-styled button if needed by pages/components */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--border-color) 70%, transparent);
+
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--button-bg) 90%, #000),
+    color-mix(in srgb, var(--accent-2) 35%, var(--button-bg))
+  );
+  color: var(--button-text);
+
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-fast) var(--ease-out),
+    filter var(--dur-fast) var(--ease-out);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+}
+
+.btn:active {
+  transform: translateY(0px);
 }

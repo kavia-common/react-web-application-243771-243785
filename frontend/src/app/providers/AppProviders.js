@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "../theme/ThemeProvider";
 
 /**
  * AppProviders composes cross-cutting providers (routing, theme, query, auth, etc.)
@@ -9,5 +10,9 @@ import { BrowserRouter } from "react-router-dom";
 // PUBLIC_INTERFACE
 export function AppProviders({ children }) {
   /** Wrap the app with shared providers. Extend this file as providers are added. */
-  return <BrowserRouter>{children}</BrowserRouter>;
+  return (
+    <ThemeProvider>
+      <BrowserRouter>{children}</BrowserRouter>
+    </ThemeProvider>
+  );
 }

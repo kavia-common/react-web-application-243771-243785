@@ -50,6 +50,49 @@
   gap: 10px;
 }
 
+.headerTools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.themeLabel {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.themeSelect {
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: color-mix(in srgb, var(--bg-primary) 92%, transparent);
+  color: var(--text-primary);
+}
+
+.themeCycle {
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent-3) 30%, var(--bg-secondary)),
+    color-mix(in srgb, var(--accent-2) 18%, var(--bg-secondary))
+  );
+  color: var(--text-primary);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}
+
+.themeCycle:hover {
+  border-color: color-mix(in srgb, var(--text-secondary) 35%, var(--border-color));
+}
+
 .navLink {
   text-decoration: none;
   color: var(--text-primary);
@@ -84,4 +127,18 @@
 .footerText {
   opacity: 0.8;
   font-size: 12px;
+}
+
+.themePill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  margin-left: 6px;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: color-mix(in srgb, var(--bg-primary) 92%, transparent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 12px;
+  opacity: 0.95;
 }
