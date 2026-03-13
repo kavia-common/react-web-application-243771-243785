@@ -1,0 +1,133 @@
+.wrap {
+  display: grid;
+  gap: 18px;
+}
+
+.header {
+  display: grid;
+  gap: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: 0.6px;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 75ch;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--bg-secondary) 82%, transparent);
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+.cardTitle {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  opacity: 0.9;
+}
+
+.body {
+  margin: 0;
+  color: color-mix(in srgb, var(--text-primary) 78%, transparent);
+  line-height: 1.6;
+}
+
+.body + .body {
+  margin-top: 10px;
+}
+
+.list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  color: color-mix(in srgb, var(--text-primary) 80%, transparent);
+  line-height: 1.5;
+}
+
+.k {
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+
+.actions {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--border-color) 70%, transparent);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent-3) 40%, var(--bg-secondary)),
+    color-mix(in srgb, var(--accent-2) 26%, var(--bg-secondary))
+  );
+  color: var(--text-primary);
+  font-weight: 900;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.cta:hover {
+  text-decoration: none;
+  border-color: color-mix(in srgb, var(--text-muted) 35%, var(--border-color));
+}
+
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  background: color-mix(in srgb, var(--bg-primary) 94%, transparent);
+  color: var(--text-primary);
+  font-weight: 800;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.secondary:hover {
+  text-decoration: none;
+  border-color: color-mix(in srgb, var(--text-muted) 35%, var(--border-color));
+}
+
+.footerNote {
+  opacity: 0.8;
+  font-size: 12px;
+  max-width: 80ch;
+}
+
+@media (min-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card:last-child {
+    grid-column: 1 / -1;
+  }
+}

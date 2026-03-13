@@ -33,7 +33,9 @@ export function AppLayout({ children }) {
   const navItems = useMemo(
     () => [
       { to: "/", label: "Home" },
-      // Add future pages here (e.g. /about, /settings, /dashboard, etc.)
+      { to: "/about", label: "About" },
+      { to: "/playground", label: "Playground" },
+      { to: "/settings", label: "Settings" }
     ],
     []
   );

@@ -1,0 +1,144 @@
+.wrap {
+  display: grid;
+  gap: 18px;
+}
+
+.header {
+  display: grid;
+  gap: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: 0.6px;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 75ch;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--bg-secondary) 82%, transparent);
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  gap: 10px;
+}
+
+.cardTitle {
+  margin: 0 0 2px 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  opacity: 0.9;
+}
+
+.body {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  background: color-mix(in srgb, var(--bg-primary) 94%, transparent);
+}
+
+.toggleText {
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+
+.hint {
+  opacity: 0.7;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.preview {
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--bg-primary) 92%, transparent);
+  padding: 10px 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.previewRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.previewKey {
+  font-family: var(--font-mono);
+  font-weight: 900;
+  opacity: 0.75;
+}
+
+.previewVal {
+  font-family: var(--font-mono);
+  font-weight: 900;
+}
+
+.kv {
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.kvRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  padding: 10px 12px;
+  background: color-mix(in srgb, var(--bg-primary) 94%, transparent);
+}
+
+.kvRow + .kvRow {
+  border-top: 1px dashed color-mix(in srgb, var(--border-color) 75%, transparent);
+}
+
+.kvKey {
+  font-family: var(--font-mono);
+  font-weight: 900;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.kvVal {
+  font-family: var(--font-mono);
+  font-weight: 900;
+}
+
+.foot {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+@media (min-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

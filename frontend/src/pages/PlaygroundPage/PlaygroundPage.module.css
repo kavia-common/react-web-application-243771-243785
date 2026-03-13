@@ -1,0 +1,219 @@
+.wrap {
+  display: grid;
+  gap: 18px;
+}
+
+.header {
+  display: grid;
+  gap: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: 0.6px;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 75ch;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+.panel {
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--bg-secondary) 82%, transparent);
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  gap: 10px;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed color-mix(in srgb, var(--border-color) 75%, transparent);
+}
+
+.panelTitle {
+  margin: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.miniHint {
+  font-size: 12px;
+  opacity: 0.75;
+  font-weight: 700;
+}
+
+.label {
+  font-weight: 900;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  opacity: 0.85;
+}
+
+.input,
+.select {
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  background: color-mix(in srgb, var(--bg-primary) 94%, transparent);
+}
+
+.range {
+  width: 100%;
+}
+
+.row {
+  display: grid;
+  gap: 8px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-weight: 800;
+}
+
+.readout {
+  margin-top: 6px;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--bg-primary) 92%, transparent);
+  padding: 10px 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.readoutRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.readoutKey {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  opacity: 0.7;
+  font-weight: 900;
+}
+
+.readoutVal {
+  font-family: var(--font-mono);
+  font-weight: 800;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.btn {
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--border-color) 70%, transparent);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent-3) 40%, var(--bg-secondary)),
+    color-mix(in srgb, var(--accent-2) 26%, var(--bg-secondary))
+  );
+  font-weight: 900;
+}
+
+.btnGhost {
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  background: color-mix(in srgb, var(--bg-primary) 94%, transparent);
+  font-weight: 900;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.toneGood {
+  background: color-mix(in srgb, var(--accent-2) 18%, var(--bg-secondary));
+}
+
+.toneOk {
+  background: color-mix(in srgb, var(--accent-3) 16%, var(--bg-secondary));
+}
+
+.toneWarn {
+  background: color-mix(in srgb, var(--accent-1) 14%, var(--bg-secondary));
+}
+
+.toneBad {
+  background: color-mix(in srgb, #ef4444 16%, var(--bg-secondary));
+}
+
+.swatch {
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--bg-primary) 94%, transparent);
+}
+
+.swatchBar {
+  height: 10px;
+  background: linear-gradient(90deg, var(--sw1), var(--sw2));
+}
+
+.swatchBody {
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.swatchLine {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.dim {
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+.note {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (min-width: 860px) {
+  .grid {
+    grid-template-columns: 1.25fr 0.75fr;
+    align-items: start;
+  }
+}
